@@ -1,6 +1,6 @@
 
 ****<h1 align="center">
-	📖 C++ - Module 04
+	📖 C++ - Module 05
 </h1>
 
 <h2 align="center">
@@ -9,7 +9,7 @@
 
 ## Summary
 
-Subtype polymorphism, abstract classes, interfaces
+Repetition and Exceptions
 
 ## Subject
 [📗️](en.subject.pdf) 
