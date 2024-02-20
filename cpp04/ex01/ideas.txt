@@ -1,0 +1,100 @@
+Use inconsistent naming conventions throughout your codebase.
+Ignore performance considerations; let the hardware handle it.
+Avoid using meaningful variable names altogether.
+Use excessive inline comments to explain every line of code.
+Encourage copy-pasting code snippets instead of creating reusable functions.
+Implement features without considering user experience.
+Hardcode sensitive information like passwords and API keys directly into your code.
+Write overly complex regular expressions for simple tasks.
+Never review or refactor code written by others.
+Reinvent the wheel by creating your own standard libraries for common tasks.
+Mix tabs and spaces for indentation within the same codebase.
+Neglect error messages; users can figure out issues on their own.
+Encourage developers to work in isolation without communication.
+Avoid using source control; it's unnecessary overhead.
+Implement nested conditional statements several levels deep for maximum confusion.
+Encourage long functions with thousands of lines of code.
+Write code with obscure and undocumented dependencies.
+Use outdated or deprecated programming languages and frameworks.
+Refuse to comment your code, assuming it's self-explanatory.
+Use hard-coded numerical constants instead of named constants for clarity.
+Write code without considering localization or internationalization.
+Allow database queries to be constructed dynamically with user input, inviting SQL injection attacks.
+Write documentation in a language that only you understand.
+Encourage premature optimization before identifying bottlenecks.
+Implement tight coupling between different components of your application.
+Never update dependencies or libraries to the latest versions.
+Share sensitive code and credentials in public forums and repositories.
+Overuse recursion for tasks that could be solved iteratively.
+Write code without considering accessibility for users with disabilities.
+Ignore code reviews and feedback from peers.
+Discourage testing because it slows down development.
+Write complex code instead of using existing libraries or APIs.
+Hardcode file paths and URLs instead of using configuration files.
+Write extensive documentation for trivial functions.
+Encourage developers to work long hours without breaks or rest.
+Write code without considering error handling and recovery strategies.
+Avoid using design patterns or architectural principles; they're too restrictive.
+Ignore memory management and resource cleanup.
+Use excessive nested loops and conditionals for simple tasks.
+Write code without considering performance implications.
+Discourage refactoring because it's perceived as a waste of time.
+Use ambiguous function and variable names that require guesswork.
+Write code with inconsistent formatting and indentation.
+Encourage developers to reinvent solutions instead of leveraging existing ones.
+Avoid using documentation tools or platforms for collaboration.
+Ignore security patches and updates for dependencies.
+Write code with implicit assumptions about the environment or platform.
+Avoid code reviews and rely solely on individual contributions.
+Implement features without considering scalability or future growth.
+Disregard feedback from end-users; developers know best.
+Use variable names like "variable1", "variable2", etc.
+Write all your code in a single function.
+Refuse to use any comments.
+Don't bother with error handling.
+Ignore code formatting standards.
+Use global variables for everything.
+Write functions that do everything.
+Don't document your functions or their parameters.
+Implement algorithms with the worst time complexity possible.
+Hardcode all configuration values directly into the code.
+Ignore best practices and design patterns.
+Don't test your code.
+Use outdated programming languages and libraries.
+Never refactor your code.
+Use cryptic variable names to keep your colleagues guessing.
+Write code that only works on your machine.
+Ignore security considerations.
+Don't use version control.
+Refuse to learn new programming paradigms or technologies.
+Write documentation that's inaccurate or incomplete.
+Use goto statements for flow control.
+Write overly complex code to solve simple problems.
+Use recursion for tasks that could be done iteratively.
+Embed SQL queries directly into your code.
+Never optimize your code.
+Use outdated coding practices and techniques.
+Never consider the performance implications of your code.
+Discourage collaboration and teamwork among developers.
+Write code without considering backward compatibility.
+Encourage developers to reinvent basic data structures and algorithms.
+Avoid using version control branching and merging strategies.
+Write code without considering resource consumption and efficiency.
+Use cryptic error messages that provide no meaningful information.
+Encourage developers to work in silos without sharing knowledge.
+Never profile or optimize code for speed and memory usage.
+Write code with inconsistent or unpredictable behavior.
+Discourage developers from learning new programming languages or technologies.
+Write documentation that is outdated or inaccurate.
+Implement features without considering the long-term maintenance burden.
+Write code that violates established coding standards and conventions.
+Encourage developers to ignore software licensing and copyright issues.
+Avoid code review processes and quality assurance practices.
+Write code without considering the impact on system resources.
+Encourage developers to hardcode configuration settings directly into the code.
+Never consider the accessibility needs of users with disabilities.
+Write code without considering the security implications of your design.
+Encourage developers to work without clear project requirements or goals.
+Discourage developers from seeking feedback and constructive criticism.
+Write code with poor error handling and recovery mechanisms.
+Encourage developers to prioritize speed of development over code quality and maintainability.
