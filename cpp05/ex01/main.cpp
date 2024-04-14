@@ -6,11 +6,11 @@
 /*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 22:34:27 by facu             ###   ########.fr       */
+/*   Updated: 2024/02/27 23:54:56 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void printTitle(std::string testName)
 {
@@ -24,7 +24,7 @@ void testNameAndGradeConstructor(void)
 	printTitle("name and grade constructor");
 	try
 	{
-		Bureaucrat a("a", 150);
+		Form a("a", 150, 150);
 		std::cout << a << std::endl;
 	}
 	catch (std::exception &e)
@@ -33,7 +33,7 @@ void testNameAndGradeConstructor(void)
 	}
 	try
 	{
-		Bureaucrat a("a", 151);
+		Form a("a", 151, 151);
 		std::cout << a << std::endl;
 	}
 	catch (std::exception &e)
@@ -42,7 +42,7 @@ void testNameAndGradeConstructor(void)
 	}
 	try
 	{
-		Bureaucrat a("a", 0);
+		Form a("a", 0, 0);
 		std::cout << a << std::endl;
 	}
 	catch (std::exception &e)
@@ -54,15 +54,15 @@ void testNameAndGradeConstructor(void)
 void testCopyConstructor(void)
 {
 	printTitle("copy constructor");
-	Bureaucrat a("a", 4);
-	Bureaucrat b(a);
+	Form a("a", 150, 150);
+	Form b(a);
 	std::cout << b << std::endl;
 }
 
-void testIncrementDecrement(void)
+void testSignature(void)
 {
 	printTitle("increment and decrement");
-	Bureaucrat a("a", 4);
+	Form a("a", 150, 150);
 	std::cout << a << std::endl;
 	try
 	{
@@ -83,7 +83,7 @@ void testIncrementDecrement(void)
 	}
 	std::cout << a << std::endl;
 
-	Bureaucrat b("b", 1);
+	Form b("b", 150, 150);
 	std::cout << b << std::endl;
 	try
 	{
@@ -95,7 +95,7 @@ void testIncrementDecrement(void)
 	}
 	std::cout << b << std::endl;
 
-	Bureaucrat c("c", 150);
+	Form c("c", 150, 150);
 	std::cout << c << std::endl;
 	try
 	{
@@ -112,6 +112,6 @@ int main(void)
 {
 	testNameAndGradeConstructor();
 	testCopyConstructor();
-	testIncrementDecrement();
+	testSignature();
 	return (0);
 }

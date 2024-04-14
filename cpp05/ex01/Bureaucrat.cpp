@@ -6,7 +6,7 @@
 /*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:07:28 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 23:44:12 by facu             ###   ########.fr       */
+/*   Updated: 2024/02/27 22:33:49 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 		throw(Bureaucrat::GradeTooHighException());
 	else if (grade < min_grade)
 		throw(Bureaucrat::GradeTooLowException());
+	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat(void)
