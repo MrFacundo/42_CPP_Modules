@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:07:28 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 23:44:12 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/14 17:27:51 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ Bureaucrat::Bureaucrat(void)
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name)
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name) , grade(src.grade)
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = src;
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat name, grade constructor called" << std::endl;
 	if (grade > max_grade)
@@ -62,21 +62,21 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (grade > max_grade)
+	if (grade >= max_grade)
 		throw(Bureaucrat::GradeTooHighException());
 	grade++;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (grade < min_grade)
+	if (grade <= min_grade)
 		throw(Bureaucrat::GradeTooLowException());
 	grade--;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
 {
-	out << rhs.getName() << ", bureaucrat grade: " << rhs.getGrade();
+	out << "Bureaucrat name: " << rhs.getName() << ", bureaucrat grade: " << rhs.getGrade();
 	return out;
 }
 

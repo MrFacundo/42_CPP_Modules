@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:40:18 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 23:38:53 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/14 17:41:25 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Form {
 		Form& operator=(Form const &rhs);
 		// GETTERS AND SETTERS
 		std::string getName(void) const;
+		int getIsSigned(void) const;
 		int getSignGrade(void) const;
 		int getExecuteGrade(void) const;
 		// MEMBER FUNCTIONS

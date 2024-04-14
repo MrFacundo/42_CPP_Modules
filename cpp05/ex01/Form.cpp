@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:56:06 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 23:52:12 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/14 18:29:55 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ Form &Form::operator=(Form const &rhs)
 {
 	std::cout << "Form assignation operator called" << std::endl;
 	if (this != &rhs)
-	{
 		is_signed = rhs.is_signed;
-	}
 	return *this;
 }
 
@@ -67,19 +65,32 @@ int Form::getExecuteGrade(void) const
 	return execute_grade;
 }
 
+int Form::getIsSigned(void) const
+{
+	return is_signed;
+}
+
 std::ostream &operator<<(std::ostream &out, Form const &rhs)
 {
-	out << rhs.getName() << ", sign_grade: " << rhs.getSignGrade() << ", execute_grade: " << rhs.getExecuteGrade();
+	out <<  "Form name: "
+		<<	rhs.getName()
+		<< ", sign_grade: "
+		<< rhs.getSignGrade()
+		<< ", execute_grade: "
+		<< rhs.getExecuteGrade()
+		<< ", is_signed: "
+		<< rhs.getIsSigned()
+		<< std::endl;
 	return out;
 }
 
-//MEMBER FUNCTIONS
+// MEMBER FUNCTIONS
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (is_signed)
 	{
 		std::cout << "Form is already signed" << std::endl;
-		return ;
+		return;
 	}
 	if (bureaucrat.getGrade() <= sign_grade)
 		is_signed = true;
@@ -89,10 +100,10 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return "Can not set grade. Grade too high";
+	return "Grade too high";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "Can not set grade. Grade too low";
+	return "Grade too low";
 }

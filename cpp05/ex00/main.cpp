@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 22:34:27 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/14 17:28:38 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void printTitle(std::string testName)
 	std::cout << "--------------------------------------------" << std::endl;
 }
 
-void testNameAndGradeConstructor(void)
+void testNameAndGradeConstructor(std::string testName)
 {
-	printTitle("name and grade constructor");
+	printTitle(testName);
 	try
 	{
 		Bureaucrat a("a", 150);
@@ -51,17 +51,17 @@ void testNameAndGradeConstructor(void)
 	}
 }
 
-void testCopyConstructor(void)
+void testCopyConstructor(std::string testName)
 {
-	printTitle("copy constructor");
+	printTitle(testName);
 	Bureaucrat a("a", 4);
 	Bureaucrat b(a);
 	std::cout << b << std::endl;
 }
 
-void testIncrementDecrement(void)
+void testIncrementDecrement(std::string testName)
 {
-	printTitle("increment and decrement");
+	printTitle(testName);
 	Bureaucrat a("a", 4);
 	std::cout << a << std::endl;
 	try
@@ -110,8 +110,8 @@ void testIncrementDecrement(void)
 
 int main(void)
 {
-	testNameAndGradeConstructor();
-	testCopyConstructor();
-	testIncrementDecrement();
+	//testNameAndGradeConstructor("name and grade constructor");
+	//testCopyConstructor("copy constructor");
+	//testIncrementDecrement("increment and decrement");
 	return (0);
 }
