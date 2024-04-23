@@ -6,7 +6,7 @@
 /*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:15:50 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 22:01:29 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/15 14:49:27 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 #include <iostream>
 #include <string>
+#include "AForm.hpp"
 
 const int max_grade = 150;
 const int min_grade = 1;
 
+class AForm;
 class Bureaucrat {
 
 	private:
@@ -38,6 +40,8 @@ class Bureaucrat {
 		// MEMBER FUNCTIONS
 		void incrementGrade(void);
 		void decrementGrade(void);
+		void signForm(AForm &form);
+		void executeForm(AForm const &form) const;
 		// EXCEPTIONS
 		class GradeTooHighException : public std::exception {
 			public:

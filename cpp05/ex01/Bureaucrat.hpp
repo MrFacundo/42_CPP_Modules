@@ -6,7 +6,7 @@
 /*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:15:50 by facu              #+#    #+#             */
-/*   Updated: 2024/02/27 23:38:53 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/14 19:10:33 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Bureaucrat {
 		// MEMBER FUNCTIONS
 		void incrementGrade(void);
 		void decrementGrade(void);
-		void signForm(Form form);
+		void signForm(Form &form);
 		// EXCEPTIONS
 		class GradeTooHighException : public std::exception {
 			public:

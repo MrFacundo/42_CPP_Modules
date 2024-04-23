@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:56:06 by facu              #+#    #+#             */
-/*   Updated: 2024/04/14 18:29:55 by ftroiter         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:15:16 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int Form::getIsSigned(void) const
 
 std::ostream &operator<<(std::ostream &out, Form const &rhs)
 {
-	out <<  "Form name: "
-		<<	rhs.getName()
+	out << "Form name: "
+		<< rhs.getName()
 		<< ", sign_grade: "
 		<< rhs.getSignGrade()
 		<< ", execute_grade: "

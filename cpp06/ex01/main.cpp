@@ -3,115 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/04/14 18:30:31 by ftroiter         ###   ########.fr       */
+/*   Created: 2024/04/23 18:14:32 by facu              #+#    #+#             */
+/*   Updated: 2024/04/23 18:36:22 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "Serializer.hpp"
 
-void printTitle(std::string testName)
-{
-	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "Testing " << testName << std::endl;
-	std::cout << "--------------------------------------------" << std::endl;
-}
-
-void testNameAndGradeConstructor(void)
-{
-	printTitle("name and grade constructor");
-	try
-	{
-		Form a("a", 150, 150);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		Form a("a", 151, 151);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		Form a("a", 0, 0);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-}
-
-void testCopyConstructor(void)
-{
-	printTitle("copy constructor");
-	Form a("a", 150, 150);
-	Form b(a);
-	std::cout << b << std::endl;
-}
-
-void testSignature(void)
-{
-	printTitle("increment and decrement");
-	Form a("a", 150, 150);
-	std::cout << a << std::endl;
-	try
-	{
-		a.incrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << a << std::endl;
-	try
-	{
-		a.decrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << a << std::endl;
-
-	Form b("b", 150, 150);
-	std::cout << b << std::endl;
-	try
-	{
-		b.decrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << b << std::endl;
-
-	Form c("c", 150, 150);
-	std::cout << c << std::endl;
-	try
-	{
-		c.incrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << c << std::endl;
-}
+#include <cassert>
+#include <iostream>
+#include <cassert>
 
 int main(void)
 {
-	testNameAndGradeConstructor();
-	testCopyConstructor();
-	testSignature();
-	return (0);
+	// Test 1: Basic functionality
+	Data data;
+	data.id = 42;
+	data.pid = 21;
+	data.s1 = "What is this even for?";
+
+	uintptr_t raw = Serializer::serialize(&data);
+	Data* ptr = Serializer::deserialize(raw);
+
+	std::cout << "Test 1: " << ptr->id << ", " << ptr->pid << ", " << ptr->s1 << std::endl;
+	assert(ptr->id == 42);
+	assert(ptr->pid == 21);
+	assert(ptr->s1 == "What is this even for?");
+
+	// Test 2: Different data
+	Data data2;
+	data2.id = 123;
+	data2.pid = 456;
+	data2.s1 = "Another test";
+
+	raw = Serializer::serialize(&data2);
+	ptr = Serializer::deserialize(raw);
+
+	std::cout << "Test 2: " << ptr->id << ", " << ptr->pid << ", " << ptr->s1 << std::endl;
+	assert(ptr->id == 123);
+	assert(ptr->pid == 456);
+	assert(ptr->s1 == "Another test");
+
+	// Test 3: Empty string
+	Data data3;
+	data3.id = 789;
+	data3.pid = 0;
+	data3.s1 = "";
+
+	raw = Serializer::serialize(&data3);
+	ptr = Serializer::deserialize(raw);
+
+	std::cout << "Test 3: " << ptr->id << ", " << ptr->pid << ", " << ptr->s1 << std::endl;
+	assert(ptr->id == 789);
+	assert(ptr->pid == 0);
+	assert(ptr->s1 == "");
+
+	std::cout << "All tests passed!" << std::endl;
+
+	return 0;
 }

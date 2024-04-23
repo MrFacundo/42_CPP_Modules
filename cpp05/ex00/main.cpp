@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/04/14 17:28:38 by ftroiter         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:20:26 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,36 @@ void printTitle(std::string testName)
 void testNameAndGradeConstructor(std::string testName)
 {
 	printTitle(testName);
-	try
-	{
+
+	std::cout << "TEST1" << std::endl;
+	try {
 		Bureaucrat a("a", 150);
 		std::cout << a << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
+
+	std::cout << "TEST2" << std::endl;
+	try {
+		Bureaucrat b("b", 151);
+		std::cout << b << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-	try
-	{
-		Bureaucrat a("a", 151);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		Bureaucrat a("a", 0);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
+
+	std::cout << "TEST3" << std::endl;
+	try {
+		Bureaucrat c("c", 0);
+		std::cout << c << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }
 
 void testCopyConstructor(std::string testName)
 {
 	printTitle(testName);
+	std::cout << "TEST1" << std::endl;
 	Bureaucrat a("a", 4);
 	Bureaucrat b(a);
 	std::cout << b << std::endl;
@@ -62,56 +60,30 @@ void testCopyConstructor(std::string testName)
 void testIncrementDecrement(std::string testName)
 {
 	printTitle(testName);
+	std::cout << "TEST1" << std::endl;
 	Bureaucrat a("a", 4);
 	std::cout << a << std::endl;
-	try
-	{
-		a.incrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	a.incrementGrade();
 	std::cout << a << std::endl;
-	try
-	{
-		a.decrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	a.decrementGrade();
 	std::cout << a << std::endl;
 
+	std::cout << "TEST2" << std::endl;
 	Bureaucrat b("b", 1);
 	std::cout << b << std::endl;
-	try
-	{
-		b.decrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	b.decrementGrade();
 	std::cout << b << std::endl;
-
+	
+	std::cout << "TEST3" << std::endl;
 	Bureaucrat c("c", 150);
 	std::cout << c << std::endl;
-	try
-	{
-		c.incrementGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << c << std::endl;
+	c.incrementGrade();
 }
 
 int main(void)
 {
-	//testNameAndGradeConstructor("name and grade constructor");
-	//testCopyConstructor("copy constructor");
-	//testIncrementDecrement("increment and decrement");
+	testNameAndGradeConstructor("name and grade constructor");
+	testCopyConstructor("copy constructor");
+	testIncrementDecrement("increment and decrement");
 	return (0);
 }

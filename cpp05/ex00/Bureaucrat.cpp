@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:07:28 by facu              #+#    #+#             */
-/*   Updated: 2024/04/14 17:27:51 by ftroiter         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:12:58 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,39 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (grade >= max_grade)
-		throw(Bureaucrat::GradeTooHighException());
-	grade++;
+	try
+	{
+		if (grade >= max_grade)
+			throw(Bureaucrat::GradeTooHighException());
+		grade++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (grade <= min_grade)
-		throw(Bureaucrat::GradeTooLowException());
-	grade--;
+	try
+	{
+		if (grade <= min_grade)
+			throw(Bureaucrat::GradeTooLowException());
+		grade--;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
 {
-	out << "Bureaucrat name: " << rhs.getName() << ", bureaucrat grade: " << rhs.getGrade();
+	out << "Bureaucrat name: "
+		<< rhs.getName()
+		<< ", bureaucrat grade: "
+		<< rhs.getGrade()
+		<< std::endl;
 	return out;
 }
 

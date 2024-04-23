@@ -6,86 +6,64 @@
 /*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 18:23:37 by facu             ###   ########.fr       */
+/*   Updated: 2024/04/15 15:45:38 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void printTitle(std::string testName)
 {
 	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "Testing " << testName << std::endl;
+	std::cout << "Test " << testName << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
 }
 
-void testNameAndGradeConstructor(std::string testName)
-{
-	printTitle(testName);
-
-	std::cout << "TEST1" << std::endl;
-	try {
-		Form a("a",150, 150);
-		std::cout << a << std::endl;
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << "TEST2" << std::endl;
-	try {
-		Form b("b",150, 151);
-		std::cout << b << std::endl;
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << "TEST3" << std::endl;
-	try {
-		Form c("c",150, 0);
-		std::cout << c << std::endl;
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-}
-
+template<typename FormType>
 void testCopyConstructor(std::string testName)
 {
 	printTitle(testName);
-	Form a("a", 150, 150);
-	Form b(a);
-	std::cout << b << std::endl;
+	std::cout << "TEST1" << std::endl;
+	FormType a("a");
+	Bureaucrat b("b", 70);
+	b.signForm(a);
+	FormType c(a);
+	std::cout << a << std::endl;
+	std::cout << c << std::endl;
 }
 
-void testSignature(std::string testName)
+template<typename FormType>
+void	testExecute(std::string testName)
 {
 	printTitle(testName);
-
 	std::cout << "TEST1" << std::endl;
-	Form a("a", 150, 150);
-	Bureaucrat b("b", 150);
+	FormType a("a");
+	Bureaucrat b("b", 1);
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
+	b.executeForm(a);
+	
+	std::cout << "TEST2" << std::endl;
 	b.signForm(a);
 	std::cout << a << std::endl;
-
-	std::cout << "TEST2" << std::endl;
-	Form c("a", 1, 1);
-	std::cout << c << std::endl;
 	std::cout << b << std::endl;
-	b.signForm(c);
-	std::cout << c << std::endl;
-
+	b.executeForm(a);
+	
 	std::cout << "TEST3" << std::endl;
+	Bureaucrat c("c", 137);
 	std::cout << c << std::endl;
-	Bureaucrat d("d", 75);
-	d.signForm(c);
-	std::cout << c << std::endl;
+	c.executeForm(a);
 }
 
 int main(void)
 {
-	testNameAndGradeConstructor("name and grade constructor");
-	testCopyConstructor("copy constructor");
-	testSignature("signature");
+	testCopyConstructor<ShrubberyCreationForm>("Copy Constructor with ShrubberyCreationForm");
+	testExecute<ShrubberyCreationForm>("Execute with ShrubberyCreationForm");
+	testCopyConstructor<RobotomyRequestForm>("Copy Constructor with RobotomyRequestForm");
+	testExecute<RobotomyRequestForm>("Execute with RobotomyRequestForm");
+	testCopyConstructor<PresidentialPardonForm>("Copy Constructor with PresidentialPardonForm");
+	testExecute<PresidentialPardonForm>("Execute with PresidentialPardonForm");
 	return (0);
 }
