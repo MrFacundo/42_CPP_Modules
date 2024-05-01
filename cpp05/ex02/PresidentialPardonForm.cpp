@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:27:43 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 14:42:10 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:26:01 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // MEMBER FUNCTIONS
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void PresidentialPardonForm::executeImpl(const Bureaucrat &executor) const
 {
-	AForm::canExecute(executor);
+	(void)executor;
 	std::cout << target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

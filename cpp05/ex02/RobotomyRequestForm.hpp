@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:56:17 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 17:47:38 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:23:08 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : public AForm
 
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 		
-		void execute(const Bureaucrat &executor) const;
+		void executeImpl(const Bureaucrat &executor) const;
 };
 
 #endif

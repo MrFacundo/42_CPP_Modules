@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:48:12 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 14:41:42 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:26:41 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 // MEMBER FUNCTIONS
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::executeImpl(const Bureaucrat &executor) const
 {
-	AForm::canExecute(executor);
-std::ofstream file((std::string(target) + "_shrubbery").c_str(), std::ios::app);	if (!file.is_open())
+	(void)executor;
+	std::ofstream file((std::string(target) + "_shrubbery").c_str(), std::ios::app);	if (!file.is_open())
 	{
 		std::cerr << "Failed to open file" << std::endl;
 		return;

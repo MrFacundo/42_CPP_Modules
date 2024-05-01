@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:50:19 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 17:47:48 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:18:56 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 		
-		void execute(const Bureaucrat &executor) const;
+		void executeImpl(const Bureaucrat &executor) const;
 };
 
 #endif

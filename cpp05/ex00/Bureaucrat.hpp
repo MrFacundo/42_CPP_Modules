@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:15:50 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 15:37:03 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 15:45:10 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <iostream>
 #include <string>
 
-const int max_grade = 150;
-const int min_grade = 1;
+const int max_grade = 1;
+const int min_grade = 150;
 
 class Bureaucrat {
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:26:20 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 17:47:21 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:11:58 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PresidentialPardonForm : public AForm
 
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
 		
-		void execute(const Bureaucrat &executor) const;
+		void executeImpl(const Bureaucrat &executor) const;
 };
 
 #endif

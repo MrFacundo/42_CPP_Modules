@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:13:44 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 18:20:26 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 15:50:22 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,19 @@ void testIncrementDecrement(std::string testName)
 	std::cout << "TEST2" << std::endl;
 	Bureaucrat b("b", 1);
 	std::cout << b << std::endl;
-	b.decrementGrade();
+	b.incrementGrade();
 	std::cout << b << std::endl;
 	
 	std::cout << "TEST3" << std::endl;
 	Bureaucrat c("c", 150);
 	std::cout << c << std::endl;
-	c.incrementGrade();
+	c.decrementGrade();
 }
 
 int main(void)
 {
-	testNameAndGradeConstructor("name and grade constructor");
-	testCopyConstructor("copy constructor");
+	//testNameAndGradeConstructor("name and grade constructor");
+	//testCopyConstructor("copy constructor");
 	testIncrementDecrement("increment and decrement");
 	return (0);
 }

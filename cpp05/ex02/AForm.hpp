@@ -27,6 +27,8 @@ class AForm {
 		bool is_signed;
 		int const sign_grade;
 		int const execute_grade;
+	protected:
+		virtual void executeImpl(const Bureaucrat &executor) const = 0;
 	public:
 		// CONSTRUCTORS AND DESTRUCTORS
 		AForm(std::string name, int sign_grade, int execute_grade);
@@ -41,8 +43,7 @@ class AForm {
 		int getExecuteGrade(void) const;
 		// MEMBER FUNCTIONS
 		void beSigned(const Bureaucrat &bureaucrat);
-		virtual void execute(const Bureaucrat &executor) const = 0;
-		bool canExecute(const Bureaucrat &executor) const;
+		virtual void execute(const Bureaucrat &executor) const;
 		// EXCEPTIONS
 		class GradeTooHighException : public std::exception {
 			public:

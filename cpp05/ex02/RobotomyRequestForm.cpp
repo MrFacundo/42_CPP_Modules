@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:57:33 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 01:01:58 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:23:06 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 }
 
 // MEMBER FUNCTIONS
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::executeImpl(const Bureaucrat &executor) const
 {
-	AForm::canExecute(executor);
+	(void)executor;
 	std::cout << "*drilling noises* ";
 	if (rand() % 2)
 		std::cout << target << " has been robotomized successfully" << std::endl;
