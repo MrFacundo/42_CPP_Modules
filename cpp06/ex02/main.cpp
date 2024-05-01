@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:58:54 by facu              #+#    #+#             */
-/*   Updated: 2024/04/24 17:45:10 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 17:29:54 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,16 @@ Base *generate(void)
 void identify(Base *p)
 {
 	std::cout << "Identify from pointer: ";
-	if (dynamic_cast<A *>(p))
+	if (!p)
+		std::cout << "Null" << std::endl;
+	else if (dynamic_cast<A *>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B *>(p))
 		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C *>(p))
 		std::cout << "C" << std::endl;
+	else
+		std::cout << "Unknown" << std::endl;
 }
 
 void identify(Base &p)
@@ -79,6 +83,7 @@ int main()
 {
 	srand(time(NULL));
 	Base *base = generate();
+	identify(NULL);
 	identify(base);
 	identify(*base);
 	delete base;

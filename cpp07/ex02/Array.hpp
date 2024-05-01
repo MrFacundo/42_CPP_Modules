@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:05:21 by facu              #+#    #+#             */
-/*   Updated: 2024/04/29 18:55:38 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 20:17:56 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Array
 		T &operator[](unsigned int i)
 		{
 			if (i >= _size)
-				throw std::exception();
+				throw outOfLimits();
 			return array[i];
 		}
 
@@ -61,6 +61,13 @@ class Array
 			for (unsigned int i = 0; i < _size; i++)
 				std::cout << array[i] << std::endl;
 		}
+
+		// EXCEPTIONS
+		class outOfLimits : public std::exception
+		{
+			public:
+				virtual const char *what() const throw() { return "Error: out of limits"; }
+		};
 };
 
 #endif

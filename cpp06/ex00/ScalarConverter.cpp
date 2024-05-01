@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:55:20 by facu              #+#    #+#             */
-/*   Updated: 2024/04/23 16:56:17 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 17:15:35 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,13 @@ void ScalarConverter::convert(std::string literal)
 	switch (type)
 	{
 	case INVALID:
+	{
 		std::cout << "Invalid input" << std::endl;
 		break;
+	}
 	case CHAR:
 	{
+		std::cout << "Type: char"  << std::endl;
 		char c = stringToChar(literal);
 		printChar(c);
 		printInt(static_cast<int>(c));
@@ -112,6 +115,7 @@ void ScalarConverter::convert(std::string literal)
 	}
 	case INT:
 	{
+		std::cout << "Type: int" << std::endl;
 		int i = stringToInt(literal);
 		printChar(static_cast<char>(i));
 		printInt(i);
@@ -121,6 +125,7 @@ void ScalarConverter::convert(std::string literal)
 	}
 	case FLOAT:
 	{
+		std::cout << "Type: float" << std::endl;
 		float f = stringToFloat(literal);
 		printChar(static_cast<char>(f));
 		printInt(static_cast<int>(f));
@@ -130,6 +135,7 @@ void ScalarConverter::convert(std::string literal)
 	}
 	case DOUBLE:
 	{
+		std::cout << "Type: double" << std::endl;
 		double d = stringToDouble(literal);
 		printChar(static_cast<char>(d));
 		printInt(static_cast<int>(d));
