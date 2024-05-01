@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:47:22 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 17:44:38 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 16:55:46 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,36 +35,42 @@ Intern &Intern::operator=(Intern const &rhs) {
 }
 
 // MEMBER FUNCTIONS
-AForm* Intern::makeForm(std::string name, std::string target) {
-	try
-	{
-		AForm* forms[] = {
-			new ShrubberyCreationForm(target),
-			new RobotomyRequestForm(target),
-			new PresidentialPardonForm(target)
-		};
-
-		std::string formNames[] = {
-			"shrubbery creation",
-			"robotomy request",
-			"presidential pardon"
-		};
-
-		for (int i = 0; i < 3; i++) {
-			if (name == formNames[i]) {
-				std::cout << "Intern creates " << name << std::endl;
-				return forms[i];
-			}
-			delete forms[i];
-		}
-		throw Intern::InvalidFormName();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return NULL;
-	}
+AForm *Intern::createShrubberyCreationForm(std::string const &target) {
+	return new ShrubberyCreationForm(target);
 }
+
+AForm *Intern::createRobotomyRequestForm(std::string const &target) {
+	return new RobotomyRequestForm(target);
+}
+
+AForm *Intern::createPresidentialPardonForm(std::string const &target) {
+	return new PresidentialPardonForm(target);
+}
+
+AForm* Intern::makeForm(std::string name, std::string target) {
+	typedef AForm *(Intern::*FormCreator)(std::string const &);
+
+	FormCreator formCreators[] = {
+		&Intern::createShrubberyCreationForm,
+		&Intern::createRobotomyRequestForm,
+		&Intern::createPresidentialPardonForm
+	};
+
+	std::string formNames[] = {
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon"
+	};
+
+	for (int i = 0; i < 3; i++) {
+		if (name == formNames[i]) {
+			std::cout << "Intern creates " << name << std::endl;
+			return (this->*formCreators[i])(target);
+		}
+	}
+	throw Intern::InvalidFormName();
+}
+
 
 // EXCEPTIONS
 const char* Intern::InvalidFormName::what(void) const throw() {

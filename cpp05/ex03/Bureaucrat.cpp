@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:07:28 by facu              #+#    #+#             */
-/*   Updated: 2024/04/15 18:12:01 by facu             ###   ########.fr       */
+/*   Updated: 2024/05/01 15:49:34 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade)
 Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat name, grade constructor called" << std::endl;
-	if (grade > max_grade)
+	if (grade < max_grade)
 		throw(Bureaucrat::GradeTooHighException());
-	else if (grade < min_grade)
+	else if (grade > min_grade)
 		throw(Bureaucrat::GradeTooLowException());
 }
 
@@ -64,7 +64,7 @@ void Bureaucrat::incrementGrade(void)
 {
 	try
 	{
-		if (grade >= max_grade)
+		if (grade <= max_grade)
 			throw(Bureaucrat::GradeTooHighException());
 		grade++;
 	}
@@ -78,7 +78,7 @@ void Bureaucrat::decrementGrade(void)
 {
 	try
 	{
-		if (grade <= min_grade)
+		if (grade >= min_grade)
 			throw(Bureaucrat::GradeTooLowException());
 		grade--;
 	}
