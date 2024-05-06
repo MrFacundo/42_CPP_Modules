@@ -1,14 +1,14 @@
-NAME		= ex01
+NAME		= ex00
 CXX			= c++
-CFLAGS		=-Wall -Wextra -Werror -g -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -g -std=c++98
 RM			= rm -rf
-SRCS		= ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 $(NAME)		: $(OBJS)
-			$(CXX) $(CFLAGS) -o $(NAME) $(OBJS)
+			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o			: %.c
-			$(CXX) $(CFLAGS) -c -o $@ $<
+			$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 all			: $(NAME)
 

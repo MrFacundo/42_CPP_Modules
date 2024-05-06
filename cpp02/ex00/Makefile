@@ -18,6 +18,9 @@ clean		:
 fclean		: clean
 			$(RM) $(NAME)
 
+restart		: clean all
+			./$(NAME)
+
 re			: fclean $(NAME)
 
 .PHONY		: re fclean clean all

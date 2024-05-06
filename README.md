@@ -24,3 +24,6 @@
 | Module 03 | Inheritance                                                                 | [📗️](cpp03/en.subject.pdf) |
 | Module 04 | Subtype polymorphism, abstract classes, interfaces                          | [📗️](cpp04/en.subject.pdf) |
 | Module 05 | Repetition and Exceptions                                                   | [📗️](cpp05/en.subject.pdf) |
+| Module 06 | Casts                                                                       | [📗️](cpp06/en.subject.pdf) |
+| Module 07 | Templated                                                                   | [📗️](cpp07/en.subject.pdf) |
+| Module 08 | Templated containers, iterators, algorithms                                 | [📗️](cpp08/en.subject.pdf) |
