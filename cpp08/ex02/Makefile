@@ -2,7 +2,7 @@ NAME		= ex02
 CXX			= c++
 CXXFLAGS	=-Wall -Wextra -Werror -g -std=c++98
 RM			= rm -rf
-SRCS		= main.cpp Bureaucrat.cpp
+SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 $(NAME)		: $(OBJS)
 			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
