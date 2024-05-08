@@ -6,7 +6,7 @@
 /*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 22:15:11 by ftroiter          #+#    #+#             */
-/*   Updated: 2024/05/08 23:08:48 by ftroiter         ###   ########.fr       */
+/*   Updated: 2024/05/09 00:00:09 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <map>
@@ -25,6 +27,7 @@ struct Transaction
 {
 	std::string date;
 	float value;
+	std::string error;
 };
 
 struct Price
@@ -47,6 +50,7 @@ public:
 	// MEMBER FUNCTIONS
 	void loadPrices(std::string const &filename);
 	void loadTransactions(std::string const &filename);
+	void printValues(void) const;
 
 	// GETTERS
 	std::unordered_map<std::string, float> getValues() const;
@@ -107,6 +111,9 @@ private:
 	std::unordered_map<std::string, float> values;
 	std::vector<Transaction> transactions;
 	std::vector<Price> prices;
+	// MEMBER FUNCTIONS
+	void updateValues(void);
+	
 };
 
 #endif
