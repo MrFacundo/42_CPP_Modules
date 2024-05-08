@@ -1,5 +1,5 @@
 ****<h1 align="center">
-	📖 C++ - Module 08
+	📖 C++ - Module 09
 </h1>
 
 <h2 align="center">
@@ -8,7 +8,7 @@
 
 ## Summary
 
-Templated containers, iterators, algorithms
+STL
 
 ## Subject
 [📗️](en.subject.pdf) 
