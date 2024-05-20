@@ -1,8 +1,8 @@
-NAME		= ex01
+NAME		= RPN
 CXX			= c++
 CXXFLAGS		=-Wall -Wextra -Werror -g -std=c++98
 RM			= rm -rf
-SRCS		= main.cpp Span.cpp
+SRCS		= main.cpp RPN.cpp
 OBJS		= $(SRCS:.cpp=.o)
 $(NAME)		: $(OBJS)
 			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
