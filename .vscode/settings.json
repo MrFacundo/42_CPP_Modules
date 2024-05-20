@@ -72,6 +72,8 @@
 		"thread": "cpp",
 		"variant": "cpp",
 		"forward_list": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"bitset": "cpp",
+		"regex": "cpp"
 	}
 }
